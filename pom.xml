@@ -161,7 +161,7 @@
                         </executions>
                         <configuration>
                             <docfilessubdirs>true</docfilessubdirs>
-                            <excludePackageNames>com.github.pyknic.vector.internal.*</excludePackageNames>
+                            <excludePackageNames>com.github.pyknic.vector.internal</excludePackageNames>
                         </configuration>
                     </plugin>
                     <plugin>

@@ -14,7 +14,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pyknic.game.core;
+package com.github.pyknic.vector;
 
 /**
  * The common interface for all vectors with a specified length.

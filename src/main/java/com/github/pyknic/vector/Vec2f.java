@@ -14,10 +14,10 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pyknic.game.core;
+package com.github.pyknic.vector;
 
-import com.github.pyknic.game.core.internal.Vec2fConst;
-import com.github.pyknic.game.core.internal.Vec2fImpl;
+import com.github.pyknic.vector.internal.Vec2fConst;
+import com.github.pyknic.vector.internal.Vec2fImpl;
 
 /**
  * A two-dimensional {@code float}-based vector.
