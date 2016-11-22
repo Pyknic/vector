@@ -73,6 +73,56 @@ public interface Vec<V extends Vec<? super V>> {
     static Vec4f vec4f(float x, float y, float z, float w) { 
         return Vec4f.of(x, y, z, w); 
     }
+    
+    /**
+     * Returns a new (immutable) one-dimensional vector with the specified 
+     * value.
+     * 
+     * @param x  the x-element
+     * @return   the new instance
+     */
+    static Vec1f const1f(float x) { 
+        return Vec1f.constant(x); 
+    }
+    
+    /**
+     * Returns a new (immutable) two-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @return   the new instance
+     */
+    static Vec2f const2f(float x, float y) { 
+        return Vec2f.constant(x, y); 
+    }
+    
+    /**
+     * Returns a new (immutable) three-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @return   the new instance
+     */
+    static Vec3f const3f(float x, float y, float z) { 
+        return Vec3f.constant(x, y, z); 
+    }
+    
+    /**
+     * Returns a new (immutable) four-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @param w  the w-element
+     * @return   the new instance
+     */
+    static Vec4f const4f(float x, float y, float z, float w) { 
+        return Vec4f.constant(x, y, z, w); 
+    }
 
     /**
      * Calculates the vector addition of this and another vector. Depending on
