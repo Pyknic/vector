@@ -75,6 +75,102 @@ public interface Vec<V extends Vec<? super V>> {
     }
     
     /**
+     * Returns a new (mutable) one-dimensional vector with the specified value.
+     * 
+     * @param x  the x-element
+     * @return   the new instance
+     */
+    static Vec1i vec1i(int x) { 
+        return Vec1i.of(x); 
+    }
+    
+    /**
+     * Returns a new (mutable) two-dimensional vector with the specified values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @return   the new instance
+     */
+    static Vec2i vec2i(int x, int y) { 
+        return Vec2i.of(x, y); 
+    }
+    
+    /**
+     * Returns a new (mutable) three-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @return   the new instance
+     */
+    static Vec3i vec3i(int x, int y, int z) { 
+        return Vec3i.of(x, y, z); 
+    }
+    
+    /**
+     * Returns a new (mutable) four-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @param w  the w-element
+     * @return   the new instance
+     */
+    static Vec4i vec4i(int x, int y, int z, int w) { 
+        return Vec4i.of(x, y, z, w); 
+    }
+    
+    /**
+     * Returns a new (mutable) one-dimensional vector with the specified value.
+     * 
+     * @param x  the x-element
+     * @return   the new instance
+     */
+    static Vec1d vec1d(double x) { 
+        return Vec1d.of(x); 
+    }
+    
+    /**
+     * Returns a new (mutable) two-dimensional vector with the specified values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @return   the new instance
+     */
+    static Vec2d vec2d(double x, double y) { 
+        return Vec2d.of(x, y); 
+    }
+    
+    /**
+     * Returns a new (mutable) three-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @return   the new instance
+     */
+    static Vec3d vec3d(double x, double y, double z) { 
+        return Vec3d.of(x, y, z); 
+    }
+    
+    /**
+     * Returns a new (mutable) four-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @param w  the w-element
+     * @return   the new instance
+     */
+    static Vec4d vec4d(double x, double y, double z, double w) { 
+        return Vec4d.of(x, y, z, w); 
+    }
+    
+    /**
      * Returns a new (immutable) one-dimensional vector with the specified 
      * value.
      * 
@@ -122,6 +218,104 @@ public interface Vec<V extends Vec<? super V>> {
      */
     static Vec4f const4f(float x, float y, float z, float w) { 
         return Vec4f.constant(x, y, z, w); 
+    }
+    /**
+     * Returns a new (immutable) one-dimensional vector with the specified 
+     * value.
+     * 
+     * @param x  the x-element
+     * @return   the new instance
+     */
+    static Vec1i const1i(int x) { 
+        return Vec1i.constant(x); 
+    }
+    
+    /**
+     * Returns a new (immutable) two-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @return   the new instance
+     */
+    static Vec2i const2i(int x, int y) { 
+        return Vec2i.constant(x, y); 
+    }
+    
+    /**
+     * Returns a new (immutable) three-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @return   the new instance
+     */
+    static Vec3i const3i(int x, int y, int z) { 
+        return Vec3i.constant(x, y, z); 
+    }
+    
+    /**
+     * Returns a new (immutable) four-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @param w  the w-element
+     * @return   the new instance
+     */
+    static Vec4i const4i(int x, int y, int z, int w) { 
+        return Vec4i.constant(x, y, z, w); 
+    }
+    /**
+     * Returns a new (immutable) one-dimensional vector with the specified 
+     * value.
+     * 
+     * @param x  the x-element
+     * @return   the new instance
+     */
+    static Vec1d const1d(double x) { 
+        return Vec1d.constant(x); 
+    }
+    
+    /**
+     * Returns a new (immutable) two-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @return   the new instance
+     */
+    static Vec2d const2d(double x, double y) { 
+        return Vec2d.constant(x, y); 
+    }
+    
+    /**
+     * Returns a new (immutable) three-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @return   the new instance
+     */
+    static Vec3d const3d(double x, double y, double z) { 
+        return Vec3d.constant(x, y, z); 
+    }
+    
+    /**
+     * Returns a new (immutable) four-dimensional vector with the specified 
+     * values.
+     * 
+     * @param x  the x-element
+     * @param y  the y-element
+     * @param z  the z-element
+     * @param w  the w-element
+     * @return   the new instance
+     */
+    static Vec4d const4d(double x, double y, double z, double w) { 
+        return Vec4d.constant(x, y, z, w); 
     }
 
     /**
