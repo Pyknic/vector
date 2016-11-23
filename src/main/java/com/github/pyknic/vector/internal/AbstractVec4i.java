@@ -16,108 +16,121 @@
  */
 package com.github.pyknic.vector.internal;
 
-import com.github.pyknic.vector.Vec3f;
+import com.github.pyknic.vector.Vec4i;
 
 /**
  *
  * @author Emil Forslund
  * @since  1.0.0
  */
-abstract class AbstractVec3f implements Vec3f {
+abstract class AbstractVec4i implements Vec4i {
     
-    AbstractVec3f() {}
+    AbstractVec4i() {}
     
     @Override
-    public final Vec3f setX(float x) {
-        return set(x, getY(), getZ());
+    public final Vec4i setX(int x) {
+        return set(x, getY(), getZ(), getW());
     }
     
     @Override
-    public final Vec3f setY(float y) {
-        return set(getX(), y, getZ());
+    public final Vec4i setY(int y) {
+        return set(getX(), y, getZ(), getW());
     }
     
     @Override
-    public final Vec3f setZ(float z) {
-        return set(getX(), getY(), z);
+    public final Vec4i setZ(int z) {
+        return set(getX(), getY(), z, getW());
     }
     
     @Override
-    public final Vec3f set(Vec3f vector) {
+    public final Vec4i setW(int w) {
+        return set(getX(), getY(), getZ(), w);
+    }
+    
+    @Override
+    public final Vec4i set(Vec4i vector) {
         return set(
             vector.getX(), 
             vector.getY(),
-            vector.getZ()
+            vector.getZ(),
+            vector.getW()
         );
     }
 
     @Override
-    public final Vec3f plus(float x, float y, float z) {
-        return set(getX() + x, getY() + y, getZ() + z);
+    public final Vec4i plus(int x, int y, int z, int w) {
+        return set(getX() + x, getY() + y, getZ() + z, getW() + w);
     }
 
     @Override
-    public final Vec3f plus(Vec3f vector) {
+    public final Vec4i plus(Vec4i vector) {
         return set(
             getX() + vector.getX(),
             getY() + vector.getY(),
-            getZ() + vector.getZ()
+            getZ() + vector.getZ(),
+            getW() + vector.getW()
         );
     }
 
     @Override
-    public final Vec3f minus(float x, float y, float z) {
+    public final Vec4i minus(int x, int y, int z, int w) {
         return set(
             getX() - x, 
             getY() - y,
-            getZ() - z
+            getZ() - z,
+            getW() - w
         );
     }
 
     @Override
-    public final Vec3f minus(Vec3f vector) {
+    public final Vec4i minus(Vec4i vector) {
         return set(
             getX() - vector.getX(),
             getY() - vector.getY(),
-            getZ() - vector.getZ()
+            getZ() - vector.getZ(),
+            getW() - vector.getW()
         );
     }
 
     @Override
-    public final Vec3f scale(float factor) {
-        return scale(factor, factor, factor);
+    public final Vec4i scale(int factor) {
+        return scale(factor, factor, factor, factor);
     }
 
     @Override
-    public final Vec3f scale(float x, float y, float z) {
+    public final Vec4i scale(int x, int y, int z, int w) {
         return set(
             getX() * x,
             getY() * y,
-            getZ() * z
+            getZ() * z,
+            getW() * w
         );
     }
 
     @Override
-    public final Vec3f scale(Vec3f vector) {
+    public final Vec4i scale(Vec4i vector) {
         return set(
             getX() * vector.getX(),
             getY() * vector.getY(),
-            getZ() * vector.getZ()
+            getZ() * vector.getZ(),
+            getW() * vector.getW()
         );
     }
 
     @Override
-    public final float dot(Vec3f vector) {
+    public final int dot(Vec4i vector) {
         return getX() * vector.getX()
              + getY() * vector.getY()
-             + getZ() * vector.getZ();
+             + getZ() * vector.getZ()
+             + getW() * vector.getW();
     }
 
     @Override
     public final double magn2() {
         return (double) getX() * getX()
              + (double) getY() * getY()
-             + (double) getZ() * getZ();
+             + (double) getZ() * getZ()
+             + (double) getW() * getW();
     }
 
     @Override
@@ -126,15 +139,16 @@ abstract class AbstractVec3f implements Vec3f {
     }
     
     @Override
-    public final Vec3f normalize() {
-        if (getX() == 0 && getY() == 0 && getZ() == 0) {
+    public final Vec4i normalize() {
+        if (getX() == 0 && getY() == 0 && getZ() == 0 && getW() == 0) {
             return this;
         } else {
             final double magn = magn();
             return set(
-                (float) (getX() / magn),
-                (float) (getY() / magn),
-                (float) (getZ() / magn)
+                (int) (getX() / magn),
+                (int) (getY() / magn),
+                (int) (getZ() / magn),
+                (int) (getW() / magn)
             );
         }
     }
@@ -142,9 +156,10 @@ abstract class AbstractVec3f implements Vec3f {
     @Override
     public final int hashCode() {
         int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits(getX());
-        hash += hash * 97 + Float.floatToIntBits(getY());
-        hash += hash * 97 + Float.floatToIntBits(getZ());
+        hash += hash * 97 + getX();
+        hash += hash * 97 + getY();
+        hash += hash * 97 + getZ();
+        hash += hash * 97 + getW();
         return hash;
     }
 
@@ -152,16 +167,20 @@ abstract class AbstractVec3f implements Vec3f {
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;
         else if (obj == null)             return false;
-        else if (!(obj instanceof Vec3f)) return false;
+        else if (!(obj instanceof Vec4i)) return false;
         
-        final Vec3f o = (Vec3f) obj;
-        return Float.floatToIntBits(getX()) == Float.floatToIntBits(o.getX())
-            && Float.floatToIntBits(getY()) == Float.floatToIntBits(o.getY())
-            && Float.floatToIntBits(getZ()) == Float.floatToIntBits(o.getZ());
+        final Vec4i o = (Vec4i) obj;
+        return getX() == o.getX()
+            && getY() == o.getY()
+            && getZ() == o.getZ()
+            && getW() == o.getW();
     }
 
     @Override
     public final String toString() {
-        return String.format("(%.3f,%.3f,%.3f)", getX(), getY(), getZ());
+        return String.format(
+            "(%d,%d,%d,%d)", 
+            getX(), getY(), getZ(), getW()
+        );
     }
 }

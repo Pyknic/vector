@@ -16,34 +16,34 @@
  */
 package com.github.pyknic.vector.internal;
 
-import com.github.pyknic.vector.Vec3f;
+import com.github.pyknic.vector.Vec3i;
 
 /**
  *
  * @author Emil Forslund
  * @since  1.0.0
  */
-abstract class AbstractVec3f implements Vec3f {
+abstract class AbstractVec3i implements Vec3i {
     
-    AbstractVec3f() {}
+    AbstractVec3i() {}
     
     @Override
-    public final Vec3f setX(float x) {
+    public final Vec3i setX(int x) {
         return set(x, getY(), getZ());
     }
     
     @Override
-    public final Vec3f setY(float y) {
+    public final Vec3i setY(int y) {
         return set(getX(), y, getZ());
     }
     
     @Override
-    public final Vec3f setZ(float z) {
+    public final Vec3i setZ(int z) {
         return set(getX(), getY(), z);
     }
     
     @Override
-    public final Vec3f set(Vec3f vector) {
+    public final Vec3i set(Vec3i vector) {
         return set(
             vector.getX(), 
             vector.getY(),
@@ -52,12 +52,12 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final Vec3f plus(float x, float y, float z) {
+    public final Vec3i plus(int x, int y, int z) {
         return set(getX() + x, getY() + y, getZ() + z);
     }
 
     @Override
-    public final Vec3f plus(Vec3f vector) {
+    public final Vec3i plus(Vec3i vector) {
         return set(
             getX() + vector.getX(),
             getY() + vector.getY(),
@@ -66,7 +66,7 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final Vec3f minus(float x, float y, float z) {
+    public final Vec3i minus(int x, int y, int z) {
         return set(
             getX() - x, 
             getY() - y,
@@ -75,7 +75,7 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final Vec3f minus(Vec3f vector) {
+    public final Vec3i minus(Vec3i vector) {
         return set(
             getX() - vector.getX(),
             getY() - vector.getY(),
@@ -84,12 +84,12 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final Vec3f scale(float factor) {
+    public final Vec3i scale(int factor) {
         return scale(factor, factor, factor);
     }
 
     @Override
-    public final Vec3f scale(float x, float y, float z) {
+    public final Vec3i scale(int x, int y, int z) {
         return set(
             getX() * x,
             getY() * y,
@@ -98,7 +98,7 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final Vec3f scale(Vec3f vector) {
+    public final Vec3i scale(Vec3i vector) {
         return set(
             getX() * vector.getX(),
             getY() * vector.getY(),
@@ -107,7 +107,7 @@ abstract class AbstractVec3f implements Vec3f {
     }
 
     @Override
-    public final float dot(Vec3f vector) {
+    public final int dot(Vec3i vector) {
         return getX() * vector.getX()
              + getY() * vector.getY()
              + getZ() * vector.getZ();
@@ -126,15 +126,15 @@ abstract class AbstractVec3f implements Vec3f {
     }
     
     @Override
-    public final Vec3f normalize() {
+    public final Vec3i normalize() {
         if (getX() == 0 && getY() == 0 && getZ() == 0) {
             return this;
         } else {
             final double magn = magn();
             return set(
-                (float) (getX() / magn),
-                (float) (getY() / magn),
-                (float) (getZ() / magn)
+                (int) (getX() / magn),
+                (int) (getY() / magn),
+                (int) (getZ() / magn)
             );
         }
     }
@@ -142,9 +142,9 @@ abstract class AbstractVec3f implements Vec3f {
     @Override
     public final int hashCode() {
         int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits(getX());
-        hash += hash * 97 + Float.floatToIntBits(getY());
-        hash += hash * 97 + Float.floatToIntBits(getZ());
+        hash += hash * 97 + getX();
+        hash += hash * 97 + getY();
+        hash += hash * 97 + getZ();
         return hash;
     }
 
@@ -152,16 +152,16 @@ abstract class AbstractVec3f implements Vec3f {
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;
         else if (obj == null)             return false;
-        else if (!(obj instanceof Vec3f)) return false;
+        else if (!(obj instanceof Vec3i)) return false;
         
-        final Vec3f o = (Vec3f) obj;
-        return Float.floatToIntBits(getX()) == Float.floatToIntBits(o.getX())
-            && Float.floatToIntBits(getY()) == Float.floatToIntBits(o.getY())
-            && Float.floatToIntBits(getZ()) == Float.floatToIntBits(o.getZ());
+        final Vec3i o = (Vec3i) obj;
+        return getX() == o.getX()
+            && getY() == o.getY()
+            && getZ() == o.getZ();
     }
 
     @Override
     public final String toString() {
-        return String.format("(%.3f,%.3f,%.3f)", getX(), getY(), getZ());
+        return String.format("(%d,%d,%d)", getX(), getY(), getZ());
     }
 }

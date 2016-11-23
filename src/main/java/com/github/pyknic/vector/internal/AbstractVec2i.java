@@ -16,29 +16,29 @@
  */
 package com.github.pyknic.vector.internal;
 
-import com.github.pyknic.vector.Vec2f;
+import com.github.pyknic.vector.Vec2i;
 
 /**
  *
  * @author Emil Forslund
  * @since  1.0.0
  */
-abstract class AbstractVec2f implements Vec2f {
+abstract class AbstractVec2i implements Vec2i {
     
-    AbstractVec2f() {}
+    AbstractVec2i() {}
     
     @Override
-    public final Vec2f setX(float x) {
+    public final Vec2i setX(int x) {
         return set(x, getY());
     }
     
     @Override
-    public final Vec2f setY(float y) {
+    public final Vec2i setY(int y) {
         return set(getX(), y);
     }
     
     @Override
-    public final Vec2f set(Vec2f vector) {
+    public final Vec2i set(Vec2i vector) {
         return set(
             vector.getX(), 
             vector.getY()
@@ -46,12 +46,12 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final Vec2f plus(float x, float y) {
+    public final Vec2i plus(int x, int y) {
         return set(getX() + x, getY() + y);
     }
 
     @Override
-    public final Vec2f plus(Vec2f vector) {
+    public final Vec2i plus(Vec2i vector) {
         return set(
             getX() + vector.getX(),
             getY() + vector.getY()
@@ -59,7 +59,7 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final Vec2f minus(float x, float y) {
+    public final Vec2i minus(int x, int y) {
         return set(
             getX() - x, 
             getY() - y
@@ -67,7 +67,7 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final Vec2f minus(Vec2f vector) {
+    public final Vec2i minus(Vec2i vector) {
         return set(
             getX() - vector.getX(),
             getY() - vector.getY()
@@ -75,12 +75,12 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final Vec2f scale(float factor) {
+    public final Vec2i scale(int factor) {
         return scale(factor, factor);
     }
 
     @Override
-    public final Vec2f scale(float x, float y) {
+    public final Vec2i scale(int x, int y) {
         return set(
             getX() * x,
             getY() * y
@@ -88,7 +88,7 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final Vec2f scale(Vec2f vector) {
+    public final Vec2i scale(Vec2i vector) {
         return set(
             getX() * vector.getX(),
             getY() * vector.getY()
@@ -96,7 +96,7 @@ abstract class AbstractVec2f implements Vec2f {
     }
 
     @Override
-    public final float dot(Vec2f vector) {
+    public final int dot(Vec2i vector) {
         return getX() * vector.getX()
              + getY() * vector.getY();
     }
@@ -113,14 +113,14 @@ abstract class AbstractVec2f implements Vec2f {
     }
     
     @Override
-    public final Vec2f normalize() {
+    public final Vec2i normalize() {
         if (getX() == 0 && getY() == 0) {
             return this;
         } else {
             final double magn = magn();
             return set(
-                (float) (getX() / magn),
-                (float) (getY() / magn)
+                (int) (getX() / magn),
+                (int) (getY() / magn)
             );
         }
     }
@@ -128,8 +128,8 @@ abstract class AbstractVec2f implements Vec2f {
     @Override
     public final int hashCode() {
         int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits(getX());
-        hash += hash * 97 + Float.floatToIntBits(getY());
+        hash += hash * 97 + getX();
+        hash += hash * 97 + getY();
         return hash;
     }
 
@@ -137,15 +137,15 @@ abstract class AbstractVec2f implements Vec2f {
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;
         else if (obj == null)             return false;
-        else if (!(obj instanceof Vec2f)) return false;
+        else if (!(obj instanceof Vec2i)) return false;
         
-        final Vec2f o = (Vec2f) obj;
-        return Float.floatToIntBits(getX()) == Float.floatToIntBits(o.getX())
-            && Float.floatToIntBits(getY()) == Float.floatToIntBits(o.getY());
+        final Vec2i o = (Vec2i) obj;
+        return getX() == o.getX()
+            && getY() == o.getY();
     }
 
     @Override
     public final String toString() {
-        return String.format("(%.3f,%.3f)", getX(), getY());
+        return String.format("(%d,%d)", getX(), getY());
     }
 }

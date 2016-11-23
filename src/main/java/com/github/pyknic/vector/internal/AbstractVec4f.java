@@ -137,7 +137,7 @@ abstract class AbstractVec4f implements Vec4f {
     public final double magn() {
         return Math.sqrt(magn2());
     }
-
+    
     @Override
     public final Vec4f normalize() {
         if (getX() == 0 && getY() == 0 && getZ() == 0 && getW() == 0) {
@@ -169,15 +169,11 @@ abstract class AbstractVec4f implements Vec4f {
         else if (obj == null)             return false;
         else if (!(obj instanceof Vec4f)) return false;
         
-        final Vec4f other = (Vec4f) obj;
-        return Float.floatToIntBits(getX()) 
-            == Float.floatToIntBits(other.getX())
-            && Float.floatToIntBits(getY()) 
-            == Float.floatToIntBits(other.getY())
-            && Float.floatToIntBits(getZ()) 
-            == Float.floatToIntBits(other.getZ())
-            && Float.floatToIntBits(getW()) 
-            == Float.floatToIntBits(other.getW());
+        final Vec4f o = (Vec4f) obj;
+        return Float.floatToIntBits(getX()) == Float.floatToIntBits(o.getX())
+            && Float.floatToIntBits(getY()) == Float.floatToIntBits(o.getY())
+            && Float.floatToIntBits(getZ()) == Float.floatToIntBits(o.getZ())
+            && Float.floatToIntBits(getW()) == Float.floatToIntBits(o.getW());
     }
 
     @Override

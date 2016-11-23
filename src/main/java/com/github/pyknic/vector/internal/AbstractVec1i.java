@@ -16,59 +16,59 @@
  */
 package com.github.pyknic.vector.internal;
 
-import com.github.pyknic.vector.Vec1f;
+import com.github.pyknic.vector.Vec1i;
 
 /**
  *
  * @author Emil Forslund
  * @since  1.0.0
  */
-abstract class AbstractVec1f implements Vec1f {
+abstract class AbstractVec1i implements Vec1i {
     
-    AbstractVec1f() {}
+    AbstractVec1i() {}
     
     @Override
-    public final Vec1f setX(float x) {
+    public final Vec1i setX(int x) {
         return set(x);
     }
 
     @Override
-    public final Vec1f set(Vec1f vector) {
+    public final Vec1i set(Vec1i vector) {
         return set(vector.getX());
     }
 
     @Override
-    public final Vec1f plus(float scalar) {
+    public final Vec1i plus(int scalar) {
         return setX(getX() + scalar);
     }
 
     @Override
-    public final Vec1f plus(Vec1f vector) {
+    public final Vec1i plus(Vec1i vector) {
         return setX(getX() + vector.getX());
     }
 
     @Override
-    public final Vec1f minus(float scalar) {
+    public final Vec1i minus(int scalar) {
         return setX(getX() - scalar);
     }
 
     @Override
-    public final Vec1f minus(Vec1f vector) {
+    public final Vec1i minus(Vec1i vector) {
         return setX(getX() - vector.getX());
     }
 
     @Override
-    public final Vec1f scale(float scalar) {
+    public final Vec1i scale(int scalar) {
         return setX(getX() * scalar);
     }
 
     @Override
-    public final Vec1f scale(Vec1f vector) {
+    public final Vec1i scale(Vec1i vector) {
         return setX(getX() * vector.getX());
     }
 
     @Override
-    public final float dot(Vec1f vector) {
+    public final int dot(Vec1i vector) {
         return getX() * vector.getX();
     }
 
@@ -83,9 +83,9 @@ abstract class AbstractVec1f implements Vec1f {
     }
     
     @Override
-    public final Vec1f normalize() {
+    public final Vec1i normalize() {
         if (getX() != 0) {
-            return setX((float) (getX() / magn()));
+            return setX((int) (getX() / magn()));
         }
         
         return this;
@@ -93,21 +93,21 @@ abstract class AbstractVec1f implements Vec1f {
     
     @Override
     public final int hashCode() {
-        return 291 + Float.floatToIntBits(getX());
+        return 291 + getX();
     }
 
     @Override
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;
         else if (obj == null)             return false;
-        else if (!(obj instanceof Vec1f)) return false;
+        else if (!(obj instanceof Vec1i)) return false;
         
-        final Vec1f o = (Vec1f) obj;
-        return Float.floatToIntBits(getX()) == Float.floatToIntBits(o.getX());
+        final Vec1i o = (Vec1i) obj;
+        return getX() == o.getX();
     }
 
     @Override
     public final String toString() {
-        return String.format("(%.3f)", getX());
+        return String.format("(%d)", getX());
     }
 }
