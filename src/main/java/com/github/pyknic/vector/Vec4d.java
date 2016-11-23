@@ -16,8 +16,8 @@
  */
 package com.github.pyknic.vector;
 
-import com.github.pyknic.vector.internal.Vec4iConst;
-import com.github.pyknic.vector.internal.Vec4iImpl;
+import com.github.pyknic.vector.internal.Vec4dConst;
+import com.github.pyknic.vector.internal.Vec4dImpl;
 
 /**
  * A four-dimensional {@code float}-based vector.
@@ -25,17 +25,17 @@ import com.github.pyknic.vector.internal.Vec4iImpl;
  * @author Emil Forslund
  * @since  1.0.0
  */
-public interface Vec4i extends Veci<Vec4i> {
+public interface Vec4d extends Vecd<Vec4d> {
 
-    Vec4i X     = constant( 1,  0,  0,  0),
-          Y     = constant( 0,  1,  0,  0),
-          Z     = constant( 0,  0,  1,  0),
-          W     = constant( 0,  0,  0,  1),
-          NEG_X = constant(-1,  0,  0,  0),
-          NEG_Y = constant( 0, -1,  0,  0),
-          NEG_Z = constant( 0,  0, -1,  0),
-          NEG_W = constant( 0,  0,  0, -1),
-          ZERO  = constant( 0,  0,  0,  0);
+    Vec4d X     = constant( 1d,  0d,  0d,  0d),
+          Y     = constant( 0d,  1d,  0d,  0d),
+          Z     = constant( 0d,  0d,  1d,  0d),
+          W     = constant( 0d,  0d,  0d,  1d),
+          NEG_X = constant(-1d,  0d,  0d,  0d),
+          NEG_Y = constant( 0d, -1d,  0d,  0d),
+          NEG_Z = constant( 0d,  0d, -1d,  0d),
+          NEG_W = constant( 0d,  0d,  0d, -1d),
+          ZERO  = constant( 0d,  0d,  0d,  0d);
     
     /**
      * Returns a copy of the specified vector.
@@ -43,8 +43,8 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param prototype  the vector to copy
      * @return           the copy
      */
-    static Vec4i copy(Vec4i prototype) {
-        return new Vec4iImpl(prototype);
+    static Vec4d copy(Vec4d prototype) {
+        return new Vec4dImpl(prototype);
     }
     
     /**
@@ -56,8 +56,8 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the fourth element
      * @return   the new mutable vector
      */
-    static Vec4i of(int x, int y, int z, int w) {
-        return new Vec4iImpl(x, y, z, w);
+    static Vec4d of(double x, double y, double z, double w) {
+        return new Vec4dImpl(x, y, z, w);
     }
     
     /**
@@ -69,8 +69,8 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the fourth element
      * @return   the new immutable vector
      */
-    static Vec4i constant(int x, int y, int z, int w) {
-        return new Vec4iConst(x, y, z, w);
+    static Vec4d constant(double x, double y, double z, double w) {
+        return new Vec4dConst(x, y, z, w);
     }
     
     /**
@@ -78,28 +78,28 @@ public interface Vec4i extends Veci<Vec4i> {
      * 
      * @return  the x element
      */
-    int getX();
+    double getX();
     
     /**
      * Returns the second element (the y-coordinate).
      * 
      * @return  the y element
      */
-    int getY();
+    double getY();
     
     /**
      * Returns the third element (the z-coordinate).
      * 
      * @return  the z element
      */
-    int getZ();
+    double getZ();
     
     /**
      * Returns the fourth element (the w-coordinate).
      * 
      * @return  the w element
      */
-    int getW();
+    double getW();
     
     /**
      * Sets the first element (the x-coordinate). If this implementation of the
@@ -110,7 +110,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param x  the new x-value
      * @return   either this or a new instance
      */
-    Vec4i setX(int x);
+    Vec4d setX(double x);
     
     /**
      * Sets the second element (the y-coordinate). If this implementation of the
@@ -121,7 +121,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param y  the new y-value
      * @return   either this or a new instance
      */
-    Vec4i setY(int y);
+    Vec4d setY(double y);
     
     /**
      * Sets the third element (the z-coordinate). If this implementation of the
@@ -132,7 +132,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param z  the new z-value
      * @return   either this or a new instance
      */
-    Vec4i setZ(int z);
+    Vec4d setZ(double z);
     
     /**
      * Sets the fourth element (the w-coordinate). If this implementation of the
@@ -143,7 +143,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the new w-value
      * @return   either this or a new instance
      */
-    Vec4i setW(int w);
+    Vec4d setW(double w);
     
     /**
      * Sets the elements of this vector. If this implementation of the
@@ -157,7 +157,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the new w-value
      * @return   either this or a new instance
      */
-    Vec4i set(int x, int y, int z, int w);
+    Vec4d set(double x, double y, double z, double w);
     
     /**
      * Adds the specified values to this vector. If this implementation of the
@@ -171,7 +171,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the value to add to the w element
      * @return   either this or a new instance
      */
-    Vec4i plus(int x, int y, int z, int w);
+    Vec4d plus(double x, double y, double z, double w);
     
     /**
      * Subtracts the specified values from this vector. If this implementation 
@@ -185,7 +185,7 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the value to subtract from the w element
      * @return   either this or a new instance
      */
-    Vec4i minus(int x, int y, int z, int w);
+    Vec4d minus(double x, double y, double z, double w);
     
     /**
      * Calculates the element-wise product of this vector and the specified 
@@ -200,6 +200,6 @@ public interface Vec4i extends Veci<Vec4i> {
      * @param w  the value to multiply with the w element
      * @return   either this or a new instance
      */
-    Vec4i scale(int x, int y, int z, int w);
+    Vec4d scale(double x, double y, double z, double w);
     
 }

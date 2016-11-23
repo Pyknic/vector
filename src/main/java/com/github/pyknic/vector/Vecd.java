@@ -24,7 +24,7 @@ package com.github.pyknic.vector;
  * @author Emil Forslund
  * @since  1.0.0
  */
-public interface Veci<V extends Veci<? super V>> extends Vec<V> {
+public interface Vecd<V extends Vecd<? super V>> extends Vec<V> {
 
     /**
      * Multiplies every element in the vector with the specified factor and
@@ -34,7 +34,7 @@ public interface Veci<V extends Veci<? super V>> extends Vec<V> {
      * @param factor  the factor to multiply with
      * @return        the element-wise product (this instance or a new)
      */
-    V scale(int factor);
+    V scale(double factor);
     
     /**
      * Calculates the vector dot-product of this and another vector.
@@ -42,7 +42,7 @@ public interface Veci<V extends Veci<? super V>> extends Vec<V> {
      * @param vector  the other vector 
      * @return        the dot-product
      */
-    int dot(V vector);
+    double dot(V vector);
     
     /**
      * Calculates the power-of-two of the magnitude of this vector. This 

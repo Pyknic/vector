@@ -20,7 +20,7 @@ import com.github.pyknic.vector.internal.Vec2iConst;
 import com.github.pyknic.vector.internal.Vec2iImpl;
 
 /**
- * A two-dimensional {@code int}-based vector.
+ * A two-dimensional {@code float}-based vector.
  * 
  * @author Emil Forslund
  * @since  1.0.0

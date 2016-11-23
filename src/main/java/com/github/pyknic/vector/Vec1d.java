@@ -16,8 +16,8 @@
  */
 package com.github.pyknic.vector;
 
-import com.github.pyknic.vector.internal.Vec1iConst;
-import com.github.pyknic.vector.internal.Vec1iImpl;
+import com.github.pyknic.vector.internal.Vec1dConst;
+import com.github.pyknic.vector.internal.Vec1dImpl;
 
 /**
  * A one-dimensional {@code float}-based vector.
@@ -25,11 +25,11 @@ import com.github.pyknic.vector.internal.Vec1iImpl;
  * @author Emil Forslund
  * @since  1.0.0
  */
-public interface Vec1i extends Veci<Vec1i> {
+public interface Vec1d extends Vecd<Vec1d> {
     
-    Vec1i ONE     = constant(1),
-          ZERO    = constant(0),
-          NEG_ONE = constant(-1);
+    Vec1d ONE     = constant(1d),
+          ZERO    = constant(0d),
+          NEG_ONE = constant(-1d);
     
     /**
      * Returns a copy of the specified vector.
@@ -37,8 +37,8 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param prototype  the vector to copy
      * @return           the copy
      */
-    static Vec1i copy(Vec1i prototype) {
-        return new Vec1iImpl(prototype);
+    static Vec1d copy(Vec1d prototype) {
+        return new Vec1dImpl(prototype);
     }
     
     /**
@@ -47,8 +47,8 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param x  the first element
      * @return   the new mutable vector
      */
-    static Vec1i of(int x) {
-        return new Vec1iImpl(x);
+    static Vec1d of(double x) {
+        return new Vec1dImpl(x);
     }
     
     /**
@@ -57,8 +57,8 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param x  the first element
      * @return   the new immutable vector
      */
-    static Vec1i constant(int x) {
-        return new Vec1iConst(x);
+    static Vec1d constant(double x) {
+        return new Vec1dConst(x);
     }
     
     /**
@@ -66,7 +66,7 @@ public interface Vec1i extends Veci<Vec1i> {
      * 
      * @return  the x element
      */
-    int getX();
+    double getX();
     
     /**
      * Sets the first element (the x-coordinate). If this implementation of the
@@ -77,7 +77,7 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param x  the new x-value
      * @return   either this or a new instance
      */
-    Vec1i setX(int x);
+    Vec1d setX(double x);
     
     /**
      * Sets the elements of this vector. If this implementation of the
@@ -88,7 +88,7 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param x  the new x-value
      * @return   either this or a new instance
      */
-    Vec1i set(int x);
+    Vec1d set(double x);
     
     /**
      * Adds the specified value to this vector. If this implementation of the
@@ -99,7 +99,7 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param scalar  the value to add
      * @return        either this or a new instance
      */
-    Vec1i plus(int scalar);
+    Vec1d plus(double scalar);
     
     /**
      * Subtracts the specified value from this vector. If this implementation of 
@@ -110,6 +110,6 @@ public interface Vec1i extends Veci<Vec1i> {
      * @param scalar  the value to subtract
      * @return        either this or a new instance
      */
-    Vec1i minus(int scalar);
+    Vec1d minus(double scalar);
     
 }

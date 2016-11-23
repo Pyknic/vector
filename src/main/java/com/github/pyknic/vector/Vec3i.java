@@ -20,7 +20,7 @@ import com.github.pyknic.vector.internal.Vec3iConst;
 import com.github.pyknic.vector.internal.Vec3iImpl;
 
 /**
- * A three-dimensional {@code int}-based vector.
+ * A three-dimensional {@code float}-based vector.
  * 
  * @author Emil Forslund
  * @since  1.0.0
