@@ -33,6 +33,11 @@ abstract class AbstractVec1f implements Vec1f {
     }
 
     @Override
+    public final Vec1f set(Vec1f vector) {
+        return set(vector.getX());
+    }
+
+    @Override
     public final Vec1f plus(float scalar) {
         return setX(getX() + scalar);
     }

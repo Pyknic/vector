@@ -36,6 +36,14 @@ abstract class AbstractVec2f implements Vec2f {
     public final Vec2f setY(float y) {
         return set(getX(), y);
     }
+    
+    @Override
+    public final Vec2f set(Vec2f vector) {
+        return set(
+            vector.getX(), 
+            vector.getY()
+        );
+    }
 
     @Override
     public final Vec2f plus(float x, float y) {

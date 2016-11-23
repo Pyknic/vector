@@ -41,6 +41,15 @@ abstract class AbstractVec3f implements Vec3f {
     public final Vec3f setZ(float z) {
         return set(getX(), getY(), z);
     }
+    
+    @Override
+    public final Vec3f set(Vec3f vector) {
+        return set(
+            vector.getX(), 
+            vector.getY(),
+            vector.getZ()
+        );
+    }
 
     @Override
     public final Vec3f plus(float x, float y, float z) {

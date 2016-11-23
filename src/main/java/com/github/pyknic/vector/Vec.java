@@ -155,6 +155,18 @@ public interface Vec<V extends Vec<? super V>> {
     V scale(V vector);
     
     /**
+     * Set all the elements in this vector to the value they had in the
+     * specified vector.
+     * <p>
+     * Depending on the implementation, the returned value could be either this, 
+     * the other or a completely new instance.
+     * 
+     * @param vector  the vector to copy
+     * @return        either this instance or a new one
+     */
+    V set(V vector);
+    
+    /**
      * Calculates the magnitude (the length) of this vector. This can sometimes
      * be an quite expensive operation.
      * 

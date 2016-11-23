@@ -46,6 +46,16 @@ abstract class AbstractVec4f implements Vec4f {
     public final Vec4f setW(float w) {
         return set(getX(), getY(), getZ(), w);
     }
+    
+    @Override
+    public final Vec4f set(Vec4f vector) {
+        return set(
+            vector.getX(), 
+            vector.getY(),
+            vector.getZ(),
+            vector.getW()
+        );
+    }
 
     @Override
     public final Vec4f plus(float x, float y, float z, float w) {
