@@ -16,22 +16,22 @@
  */
 package com.github.pyknic.vector.mat.internal;
 
-import com.github.pyknic.vector.mat.Mat3x3f;
-import static com.github.pyknic.vector.mat.internal.function.CompareUtil.compareFloat;
-import com.github.pyknic.vector.vec.Vec3f;
+import com.github.pyknic.vector.mat.Mat3x3d;
+import static com.github.pyknic.vector.mat.internal.function.CompareUtil.compareDouble;
+import com.github.pyknic.vector.vec.Vec3d;
 
 /**
- * Abstract base implementation of the {@link Mat3x3f}-interface.
+ * Abstract base implementation of the {@link Mat3x3d}-interface.
  *
  * @author Emil Forslund
  * @since  1.1.0
  */
-abstract class AbstractMat3x3f implements Mat3x3f {
+abstract class AbstractMat3x3d implements Mat3x3d {
 
-    AbstractMat3x3f() {}
+    AbstractMat3x3d() {}
 
     @Override
-    public final Mat3x3f set(Mat3x3f m) {
+    public final Mat3x3d set(Mat3x3d m) {
         return set(
             m.get0_0(), m.get0_1(), m.get0_2(),
             m.get1_0(), m.get1_1(), m.get1_2(),
@@ -40,7 +40,7 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     }
 
     @Override
-    public final Mat3x3f plus(Mat3x3f m) {
+    public final Mat3x3d plus(Mat3x3d m) {
         return set(
             get0_0() + m.get0_0(), get0_1() + m.get0_1(), get0_2() + m.get0_2(),
             get1_0() + m.get1_0(), get1_1() + m.get1_1(), get1_2() + m.get1_2(),
@@ -49,7 +49,7 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     }
 
     @Override
-    public final Mat3x3f minus(Mat3x3f m) {
+    public final Mat3x3d minus(Mat3x3d m) {
         return set(
             get0_0() - m.get0_0(), get0_1() - m.get0_1(), get0_2() - m.get0_2(),
             get1_0() - m.get1_0(), get1_1() - m.get1_1(), get1_2() - m.get1_2(),
@@ -58,7 +58,7 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     }
 
     @Override
-    public final Mat3x3f multiply(Mat3x3f m) {
+    public final Mat3x3d multiply(Mat3x3d m) {
         return set(
             get0_0() * m.get0_0(), get0_1() * m.get0_1(), get0_2() * m.get0_2(),
             get1_0() * m.get1_0(), get1_1() * m.get1_1(), get1_2() * m.get1_2(),
@@ -67,7 +67,7 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     }
 
     @Override
-    public final Mat3x3f multiply(float scalar) {
+    public final Mat3x3d multiply(double scalar) {
         return set(
             get0_0() * scalar, get0_1() * scalar, get0_2() * scalar,
             get1_0() * scalar, get1_1() * scalar, get1_2() * scalar,
@@ -76,8 +76,8 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     }
 
     @Override
-    public final Vec3f dot(Vec3f v) {
-        return Vec3f.of(
+    public final Vec3d dot(Vec3d v) {
+        return Vec3d.of(
             get0_0() * v.getX() + get0_1() * v.getY() + get0_2() * v.getZ(),
             get1_0() * v.getX() + get1_1() * v.getY() + get1_2() * v.getZ(),
             get2_0() * v.getX() + get2_1() * v.getY() + get2_2() * v.getZ()
@@ -87,15 +87,15 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     @Override
     public final int hashCode() {
         int hash = 5;
-        hash = 29 * hash + Float.floatToIntBits(get0_0());
-        hash = 29 * hash + Float.floatToIntBits(get0_1());
-        hash = 29 * hash + Float.floatToIntBits(get0_2());
-        hash = 29 * hash + Float.floatToIntBits(get1_0());
-        hash = 29 * hash + Float.floatToIntBits(get1_1());
-        hash = 29 * hash + Float.floatToIntBits(get1_2());
-        hash = 29 * hash + Float.floatToIntBits(get2_0());
-        hash = 29 * hash + Float.floatToIntBits(get2_1());
-        hash = 29 * hash + Float.floatToIntBits(get2_2());
+        hash = 29 * hash + Float.floatToIntBits((float) get0_0());
+        hash = 29 * hash + Float.floatToIntBits((float) get0_1());
+        hash = 29 * hash + Float.floatToIntBits((float) get0_2());
+        hash = 29 * hash + Float.floatToIntBits((float) get1_0());
+        hash = 29 * hash + Float.floatToIntBits((float) get1_1());
+        hash = 29 * hash + Float.floatToIntBits((float) get1_2());
+        hash = 29 * hash + Float.floatToIntBits((float) get2_0());
+        hash = 29 * hash + Float.floatToIntBits((float) get2_1());
+        hash = 29 * hash + Float.floatToIntBits((float) get2_2());
         return hash;
     }
 
@@ -103,18 +103,18 @@ abstract class AbstractMat3x3f implements Mat3x3f {
     public final boolean equals(Object obj) {
         if      (this == obj) return true;
         else if (obj == null) return false;
-        else if (!(obj instanceof Mat3x3f)) return false;
+        else if (!(obj instanceof Mat3x3d)) return false;
         
-        final Mat3x3f other = (Mat3x3f) obj;
-        return compareFloat(this, other, Mat3x3f::get0_0)
-            && compareFloat(this, other, Mat3x3f::get0_1)
-            && compareFloat(this, other, Mat3x3f::get0_2)
-            && compareFloat(this, other, Mat3x3f::get1_0)
-            && compareFloat(this, other, Mat3x3f::get1_1)
-            && compareFloat(this, other, Mat3x3f::get1_2)
-            && compareFloat(this, other, Mat3x3f::get2_0)
-            && compareFloat(this, other, Mat3x3f::get2_1)
-            && compareFloat(this, other, Mat3x3f::get2_2);
+        final Mat3x3d other = (Mat3x3d) obj;
+        return compareDouble(this, other, Mat3x3d::get0_0)
+            && compareDouble(this, other, Mat3x3d::get0_1)
+            && compareDouble(this, other, Mat3x3d::get0_2)
+            && compareDouble(this, other, Mat3x3d::get1_0)
+            && compareDouble(this, other, Mat3x3d::get1_1)
+            && compareDouble(this, other, Mat3x3d::get1_2)
+            && compareDouble(this, other, Mat3x3d::get2_0)
+            && compareDouble(this, other, Mat3x3d::get2_1)
+            && compareDouble(this, other, Mat3x3d::get2_2);
     }
 
     @Override

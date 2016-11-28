@@ -14,20 +14,27 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pyknic.vector.mat.internal.function;
+package com.github.pyknic.vector.mat;
 
 /**
- * Functional interface describing a method with the following signature:
- * {@code 
- *     float applyAsFloat(T param)
- * }
+ * Universal super interface for all matrices that are backed by {@code double}
+ * values.
+ * 
+ * @param <M>  the main interface for this kind of matrix
  * 
  * @author Emil Forslund
  * @since  1.1.0
  */
-@FunctionalInterface
-public interface ToFloatFunction<T> {
-    
-    float applyAsFloat(T param);
+public interface Matd<M extends Matd<? super M>> extends Mat<M> {
+
+    /**
+     * Performs an element-wise multiplication of every element in this matrix 
+     * to the specified scalar. The product matrix returned might be either this 
+     * instance (if this is mutable) or a completely new matrix.
+     * 
+     * @param scalar  the scalar to multiply each element with
+     * @return        the product, either this instance or a new matrix
+     */
+    M multiply(double scalar);
     
 }
