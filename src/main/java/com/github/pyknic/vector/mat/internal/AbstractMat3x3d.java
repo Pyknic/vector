@@ -77,7 +77,7 @@ abstract class AbstractMat3x3d implements Mat3x3d {
 
     @Override
     public final Vec3d dot(Vec3d v) {
-        return Vec3d.of(
+        return v.set(
             get0_0() * v.getX() + get0_1() * v.getY() + get0_2() * v.getZ(),
             get1_0() * v.getX() + get1_1() * v.getY() + get1_2() * v.getZ(),
             get2_0() * v.getX() + get2_1() * v.getY() + get2_2() * v.getZ()

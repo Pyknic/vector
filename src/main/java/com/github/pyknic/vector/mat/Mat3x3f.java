@@ -274,7 +274,8 @@ public interface Mat3x3f extends Matf<Mat3x3f> {
     
     /**
      * Returns a vector that is the product of the multiplication of this matrix
-     * and the specified vector. The given vector will not be modified.
+     * and the specified vector. The given vector will be modified in case it is
+     * mutable. Otherwise a new vector will be returned.
      * 
      * @param vector  the vector to multiply with
      * @return        the resulting vector

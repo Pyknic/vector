@@ -77,7 +77,7 @@ abstract class AbstractMat3x3i implements Mat3x3i {
 
     @Override
     public final Vec3i dot(Vec3i v) {
-        return Vec3i.of(
+        return v.set(
             get0_0() * v.getX() + get0_1() * v.getY() + get0_2() * v.getZ(),
             get1_0() * v.getX() + get1_1() * v.getY() + get1_2() * v.getZ(),
             get2_0() * v.getX() + get2_1() * v.getY() + get2_2() * v.getZ()
