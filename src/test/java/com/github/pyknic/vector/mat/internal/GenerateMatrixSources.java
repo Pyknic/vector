@@ -14,25 +14,10 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.github.pyknic.vector.vec.internal;
+package com.github.pyknic.vector.mat.internal;
 
-import com.github.pyknic.vector.vec.internal.AbstractVec2f;
-import com.github.pyknic.vector.vec.internal.Vec2fConst;
-import com.github.pyknic.vector.vec.internal.AbstractVec3f;
-import com.github.pyknic.vector.vec.internal.Vec1fConst;
-import com.github.pyknic.vector.vec.internal.Vec4fConst;
-import com.github.pyknic.vector.vec.internal.AbstractVec4f;
-import com.github.pyknic.vector.vec.internal.Vec3fConst;
-import com.github.pyknic.vector.vec.internal.Vec3fImpl;
-import com.github.pyknic.vector.vec.internal.Vec2fImpl;
-import com.github.pyknic.vector.vec.internal.Vec4fImpl;
-import com.github.pyknic.vector.vec.internal.AbstractVec1f;
-import com.github.pyknic.vector.vec.internal.Vec1fImpl;
-import com.github.pyknic.vector.vec.Vec1f;
-import com.github.pyknic.vector.vec.Vec2f;
-import com.github.pyknic.vector.vec.Vec3f;
-import com.github.pyknic.vector.vec.Vec4f;
-import com.github.pyknic.vector.vec.Vecf;
+import com.github.pyknic.vector.mat.Mat3x3f;
+import com.github.pyknic.vector.mat.Matf;
 import java.io.IOException;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import java.nio.file.Files;
@@ -47,7 +32,7 @@ import static java.util.stream.Collectors.joining;
  * @author Emil Forslund
  * @since  1.0.0
  */
-public final class GenerateSources {
+public final class GenerateMatrixSources {
     
     private final static Path ROOT = Paths.get("src", "main", "java");
     private final static Config[] CONFIGS = {
@@ -91,23 +76,11 @@ public final class GenerateSources {
                                 CAST_TO_FLOAT  = "%10$s";
     
     private final static Class<?>[] PROTOTYPES = {
-        Vecf.class,
-        Vec1f.class,
-        Vec2f.class,
-        Vec3f.class,
-        Vec4f.class,
-        AbstractVec1f.class,
-        AbstractVec2f.class,
-        AbstractVec3f.class,
-        AbstractVec4f.class,
-        Vec1fConst.class,
-        Vec2fConst.class,
-        Vec3fConst.class,
-        Vec4fConst.class,
-        Vec1fImpl.class,
-        Vec2fImpl.class,
-        Vec3fImpl.class,
-        Vec4fImpl.class
+        Matf.class,
+        Mat3x3f.class,
+        AbstractMat3x3f.class,
+        Mat3x3fConst.class,
+        Mat3x3fImpl.class
     };
     
     private final static Rule[] RULES = {
@@ -116,16 +89,30 @@ public final class GenerateSources {
         rule("Vec2f", "Vec2" + ACRONYM),
         rule("Vec3f", "Vec3" + ACRONYM),
         rule("Vec4f", "Vec4" + ACRONYM),
+        rule("Mat1x1f", "Mat1x1" + ACRONYM),
+        rule("Mat2x2f", "Mat2x2" + ACRONYM),
+        rule("Mat3x3f", "Mat3x3" + ACRONYM),
+        rule("Mat4x4f", "Mat4x4" + ACRONYM),
         rule("%\\.3f", FORMAT),
         rule("\\(float\\)", CAST_TO_FLOAT),
-        rule("Float\\.floatToIntBits\\(getX\\(\\)\\)", TO_BITS_PREFIX + "getX()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(getY\\(\\)\\)", TO_BITS_PREFIX + "getY()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(getZ\\(\\)\\)", TO_BITS_PREFIX + "getZ()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(getW\\(\\)\\)", TO_BITS_PREFIX + "getW()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(o\\.getX\\(\\)\\)", TO_BITS_PREFIX + "o.getX()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(o\\.getY\\(\\)\\)", TO_BITS_PREFIX + "o.getY()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(o\\.getZ\\(\\)\\)", TO_BITS_PREFIX + "o.getZ()" + TO_BITS_SUFFIX),
-        rule("Float\\.floatToIntBits\\(o\\.getW\\(\\)\\)", TO_BITS_PREFIX + "o.getW()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get0_0\\(\\)\\)", TO_BITS_PREFIX + "get0_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get0_1\\(\\)\\)", TO_BITS_PREFIX + "get0_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get0_2\\(\\)\\)", TO_BITS_PREFIX + "get0_2()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get1_0\\(\\)\\)", TO_BITS_PREFIX + "get1_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get1_1\\(\\)\\)", TO_BITS_PREFIX + "get1_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get1_2\\(\\)\\)", TO_BITS_PREFIX + "get1_2()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get2_0\\(\\)\\)", TO_BITS_PREFIX + "get2_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get2_1\\(\\)\\)", TO_BITS_PREFIX + "get2_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(get2_2\\(\\)\\)", TO_BITS_PREFIX + "get2_2()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get0_0\\(\\)\\)", TO_BITS_PREFIX + "o.get0_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get0_1\\(\\)\\)", TO_BITS_PREFIX + "o.get0_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get0_2\\(\\)\\)", TO_BITS_PREFIX + "o.get0_2()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get1_0\\(\\)\\)", TO_BITS_PREFIX + "o.get1_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get1_1\\(\\)\\)", TO_BITS_PREFIX + "o.get1_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get1_2\\(\\)\\)", TO_BITS_PREFIX + "o.get1_2()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get2_0\\(\\)\\)", TO_BITS_PREFIX + "o.get2_0()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get2_1\\(\\)\\)", TO_BITS_PREFIX + "o.get2_1()" + TO_BITS_SUFFIX),
+        rule("Float\\.floatToIntBits\\(o\\.get2_2\\(\\)\\)", TO_BITS_PREFIX + "o.get2_2()" + TO_BITS_SUFFIX),
         rule("\\(double\\)", CAST_TO_DOUBLE),
         rule("float ", PRIMITIVE + " "),
         rule("Float ", WRAPPER + " "),
