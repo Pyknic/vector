@@ -26,6 +26,56 @@ package com.github.pyknic.vector.mat;
  * @since  1.1.0
  */
 public interface Mat<M extends Mat<? super M>> {
+    
+    /**
+     * Returns a new (mutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (mutable) matrix
+     */
+    static Mat3x3f mat3x3f(float e0_0, float e0_1, float e0_2,
+                      float e1_0, float e1_1, float e1_2,
+                      float e2_0, float e2_1, float e2_2) {
+        
+        return Mat3x3f.of(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
+    
+    /**
+     * Returns a new (immutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (immutable) matrix
+     */
+    static Mat3x3f constMat3x3f(float e0_0, float e0_1, float e0_2,
+                            float e1_0, float e1_1, float e1_2,
+                            float e2_0, float e2_1, float e2_2) {
+        
+        return Mat3x3f.constant(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
 
     /**
      * Returns a matrix that is an exact copy of the specified matrix. Depending
