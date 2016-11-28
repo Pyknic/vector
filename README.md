@@ -5,18 +5,18 @@ A simple but efficient vector library for java.
 * Interface oriented
 * Both mutable and immutable implementations
 
-## Interfaces
+## API
 The following public types are part of the API:
 
 #### Vectors
-* Vec1d, Vec2d, Vec3d, Vec4d
-* Vec1f, Vec2f, Vec3f, Vec4f
-* Vec1i, Vec2i, Vec3i, Vec4i
+* `Vec1d`, `Vec2d`, `Vec3d`, `Vec4d`
+* `Vec1f`, `Vec2f`, `Vec3f`, `Vec4f`
+* `Vec1i`, `Vec2i`, `Vec3i`, `Vec4i`
   
 #### Matrices
-* Mat1x1d, Mat2x2d, Mat3x3d, Mat4x4d
-* Mat1x1f, Mat2x2f, Mat3x3f, Mat4x4f
-* Mat1x1i, Mat2x2i, Mat3x3i, Mat4x4i
+* `Mat1x1d`, `Mat2x2d`, `Mat3x3d`, `Mat4x4d`
+* `Mat1x1f`, `Mat2x2f`, `Mat3x3f`, `Mat4x4f`
+* `Mat1x1i`, `Mat2x2i`, `Mat3x3i`, `Mat4x4i`
 
 ## Example
 To keep your code short, this library is intended to be imported statically.
