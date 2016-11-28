@@ -8,7 +8,8 @@ A simple but efficient vector library for java.
 ## Example
 To keep your code short, this library is intended to be imported statically.
 ```java
-import static com.github.pyknic.vector.Vec.*;
+import static com.github.pyknic.vector.vec.Vec.*;
+import static com.github.pyknic.vector.mat.Mat.*;
 ```
 
 Create a new vector:
@@ -31,13 +32,27 @@ Create a copy:
 Vec3f marsGravity = gravity.scale(0.38f); // Gravity is not modified
 ```
 
+Create a new matrix:
+```java
+Mat3x3f flip = constMat3x3f(  // Create a matrix that flips the x- and
+    0f, 1f, 0f,               // y-coordinates of a vector, preserving
+    1f, 0f, 0f,               // the z-element.
+    0f, 0f, 1f
+);
+```
+
+Calculate the dot-product of a matrix and a vector:
+```java
+Vec3x3f flipped = flip.dot(position);
+```
+
 ## Download
 To use this in your project, add the following code to your `pom.xml`-file:
 ```xml
 <dependency>
     <groupId>com.github.pyknic</groupId>
     <artifactId>vector</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
