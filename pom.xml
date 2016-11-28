@@ -25,7 +25,7 @@
     
     <groupId>com.github.pyknic</groupId>
     <artifactId>vector</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.1.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
     
     <name>Vector</name>
@@ -95,7 +95,11 @@
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
-                        <Export-Package>com.github.pyknic.vector</Export-Package>
+                        <Export-Package>
+                            com.github.pyknic.vector,
+                            com.github.pyknic.vector.mat,
+                            com.github.pyknic.vector.vec
+                        </Export-Package>
                     </instructions>
                 </configuration>
             </plugin>
@@ -161,7 +165,10 @@
                         </executions>
                         <configuration>
                             <docfilessubdirs>true</docfilessubdirs>
-                            <excludePackageNames>com.github.pyknic.vector.internal</excludePackageNames>
+                            <excludePackageNames>
+                                com.github.pyknic.vector.vec.internal,
+                                com.github.pyknic.vector.mat.internal
+                            </excludePackageNames>
                         </configuration>
                     </plugin>
                     <plugin>
