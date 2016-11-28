@@ -22,7 +22,7 @@ import com.github.pyknic.vector.mat.Mat3x3f;
  * Mutable implementation of the {@link Mat3x3f}-interface.
  * 
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 public final class Mat3x3fImpl extends AbstractMat3x3f {
     

@@ -24,7 +24,7 @@ import com.github.pyknic.vector.vec.Vec3f;
  * Abstract base implementation of the {@link Mat3x3f}-interface.
  *
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 abstract class AbstractMat3x3f implements Mat3x3f {
 

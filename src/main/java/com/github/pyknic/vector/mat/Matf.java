@@ -20,8 +20,10 @@ package com.github.pyknic.vector.mat;
  * Universal super interface for all matrices that are backed by {@code float}
  * values.
  * 
+ * @param <M>  the main interface for this kind of matrix
+ * 
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 public interface Matf<M extends Matf<? super M>> extends Mat<M> {
 

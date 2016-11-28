@@ -23,7 +23,7 @@ package com.github.pyknic.vector.mat.internal.function;
  * }
  * 
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 @FunctionalInterface
 public interface ToFloatFunction<T> {

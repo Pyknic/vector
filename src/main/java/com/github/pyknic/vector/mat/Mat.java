@@ -23,7 +23,7 @@ package com.github.pyknic.vector.mat;
  * @param <M>  the main interface for this kind of matrix
  * 
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 public interface Mat<M extends Mat<? super M>> {
 

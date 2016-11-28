@@ -24,7 +24,7 @@ import com.github.pyknic.vector.vec.Vec3f;
  * A matrix with the dimensions 3-by-3 backed by {@code float} values.
  *
  * @author Emil Forslund
- * @since  1.0.1
+ * @since  1.1.0
  */
 public interface Mat3x3f extends Matf<Mat3x3f> {
     
