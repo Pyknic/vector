@@ -139,13 +139,19 @@ abstract class AbstractVec3f implements Vec3f {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits(getX());
-        hash += hash * 97 + Float.floatToIntBits(getY());
-        hash += hash * 97 + Float.floatToIntBits(getZ());
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + Float.floatToIntBits(getX());
+            hash += hash * 97 + Float.floatToIntBits(getY());
+            hash += hash * 97 + Float.floatToIntBits(getZ());
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
 
     @Override

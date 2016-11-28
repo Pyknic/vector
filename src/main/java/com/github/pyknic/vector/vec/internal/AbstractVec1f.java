@@ -91,9 +91,14 @@ abstract class AbstractVec1f implements Vec1f {
         return this;
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        return 291 + Float.floatToIntBits(getX());
+        if (hashCode == 0) {
+            hashCode = 291 + Float.floatToIntBits(getX());
+        }
+        return hashCode;
     }
 
     @Override

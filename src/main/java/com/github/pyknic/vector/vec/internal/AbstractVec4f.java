@@ -153,14 +153,20 @@ abstract class AbstractVec4f implements Vec4f {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits(getX());
-        hash += hash * 97 + Float.floatToIntBits(getY());
-        hash += hash * 97 + Float.floatToIntBits(getZ());
-        hash += hash * 97 + Float.floatToIntBits(getW());
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + Float.floatToIntBits(getX());
+            hash += hash * 97 + Float.floatToIntBits(getY());
+            hash += hash * 97 + Float.floatToIntBits(getZ());
+            hash += hash * 97 + Float.floatToIntBits(getW());
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
 
     @Override
