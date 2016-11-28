@@ -41,9 +41,59 @@ public interface Mat<M extends Mat<? super M>> {
      * @param e2_2  the bottom-right element
      * @return      the new (mutable) matrix
      */
+    static Mat3x3d mat3x3d(double e0_0, double e0_1, double e0_2,
+                           double e1_0, double e1_1, double e1_2,
+                           double e2_0, double e2_1, double e2_2) {
+        
+        return Mat3x3d.of(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
+    
+    /**
+     * Returns a new (immutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (immutable) matrix
+     */
+    static Mat3x3d constMat3x3d(double e0_0, double e0_1, double e0_2,
+                                double e1_0, double e1_1, double e1_2,
+                                double e2_0, double e2_1, double e2_2) {
+        
+        return Mat3x3d.constant(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
+    
+    /**
+     * Returns a new (mutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (mutable) matrix
+     */
     static Mat3x3f mat3x3f(float e0_0, float e0_1, float e0_2,
-                      float e1_0, float e1_1, float e1_2,
-                      float e2_0, float e2_1, float e2_2) {
+                           float e1_0, float e1_1, float e1_2,
+                           float e2_0, float e2_1, float e2_2) {
         
         return Mat3x3f.of(
             e0_0, e0_1, e0_2,
@@ -67,10 +117,60 @@ public interface Mat<M extends Mat<? super M>> {
      * @return      the new (immutable) matrix
      */
     static Mat3x3f constMat3x3f(float e0_0, float e0_1, float e0_2,
-                            float e1_0, float e1_1, float e1_2,
-                            float e2_0, float e2_1, float e2_2) {
+                                float e1_0, float e1_1, float e1_2,
+                                float e2_0, float e2_1, float e2_2) {
         
         return Mat3x3f.constant(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
+    
+    /**
+     * Returns a new (mutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (mutable) matrix
+     */
+    static Mat3x3i mat3x3i(int e0_0, int e0_1, int e0_2,
+                           int e1_0, int e1_1, int e1_2,
+                           int e2_0, int e2_1, int e2_2) {
+        
+        return Mat3x3i.of(
+            e0_0, e0_1, e0_2,
+            e1_0, e1_1, e1_2,
+            e2_0, e2_1, e2_2
+        );
+    }
+    
+    /**
+     * Returns a new (immutable) matrix with the specified elements.
+     * 
+     * @param e0_0  the top-left element
+     * @param e0_1  the top-center element
+     * @param e0_2  the top-right element
+     * @param e1_0  the middle-left element
+     * @param e1_1  the middle-center element
+     * @param e1_2  the middle-right element
+     * @param e2_0  the bottom-left element
+     * @param e2_1  the bottom-center element
+     * @param e2_2  the bottom-right element
+     * @return      the new (immutable) matrix
+     */
+    static Mat3x3i constMat3x3i(int e0_0, int e0_1, int e0_2,
+                                int e1_0, int e1_1, int e1_2,
+                                int e2_0, int e2_1, int e2_2) {
+        
+        return Mat3x3i.constant(
             e0_0, e0_1, e0_2,
             e1_0, e1_1, e1_2,
             e2_0, e2_1, e2_2
