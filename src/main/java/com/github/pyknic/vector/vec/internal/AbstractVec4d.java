@@ -153,14 +153,20 @@ abstract class AbstractVec4d implements Vec4d {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits((float) getX());
-        hash += hash * 97 + Float.floatToIntBits((float) getY());
-        hash += hash * 97 + Float.floatToIntBits((float) getZ());
-        hash += hash * 97 + Float.floatToIntBits((float) getW());
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + Float.floatToIntBits((float) getX());
+            hash += hash * 97 + Float.floatToIntBits((float) getY());
+            hash += hash * 97 + Float.floatToIntBits((float) getZ());
+            hash += hash * 97 + Float.floatToIntBits((float) getW());
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
 
     @Override

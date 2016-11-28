@@ -16,9 +16,6 @@
  */
 package com.github.pyknic.vector.vec;
 
-import com.github.pyknic.vector.vec.Vecf;
-import com.github.pyknic.vector.vec.Vec;
-
 /**
  * Common interface for all vectors of {@code float} type.
  * 

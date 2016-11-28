@@ -91,9 +91,14 @@ abstract class AbstractVec1i implements Vec1i {
         return this;
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        return 291 + getX();
+        if (hashCode == 0) {
+            hashCode = 291 + getX();
+        }
+        return hashCode;
     }
 
     @Override

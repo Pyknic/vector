@@ -125,14 +125,20 @@ abstract class AbstractVec2d implements Vec2d {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + Float.floatToIntBits((float) getX());
-        hash += hash * 97 + Float.floatToIntBits((float) getY());
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + Float.floatToIntBits((float) getX());
+            hash += hash * 97 + Float.floatToIntBits((float) getY());
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
-
+    
     @Override
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;

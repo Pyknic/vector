@@ -125,14 +125,20 @@ abstract class AbstractVec2i implements Vec2i {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + getX();
-        hash += hash * 97 + getY();
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + getX();
+            hash += hash * 97 + getY();
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
-
+    
     @Override
     public final boolean equals(Object obj) {
         if      (this == obj)             return true;

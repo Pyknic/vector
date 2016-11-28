@@ -16,8 +16,6 @@
  */
 package com.github.pyknic.vector.vec;
 
-import com.github.pyknic.vector.vec.Vecd;
-import com.github.pyknic.vector.vec.Vec2d;
 import com.github.pyknic.vector.vec.internal.Vec2dConst;
 import com.github.pyknic.vector.vec.internal.Vec2dImpl;
 

@@ -16,20 +16,6 @@
  */
 package com.github.pyknic.vector.vec;
 
-import com.github.pyknic.vector.vec.Vec4f;
-import com.github.pyknic.vector.vec.Vec2f;
-import com.github.pyknic.vector.vec.Vec2d;
-import com.github.pyknic.vector.vec.Vec3i;
-import com.github.pyknic.vector.vec.Vec1i;
-import com.github.pyknic.vector.vec.Vec1f;
-import com.github.pyknic.vector.vec.Vec2i;
-import com.github.pyknic.vector.vec.Vec3d;
-import com.github.pyknic.vector.vec.Vec;
-import com.github.pyknic.vector.vec.Vec4d;
-import com.github.pyknic.vector.vec.Vec1d;
-import com.github.pyknic.vector.vec.Vec3f;
-import com.github.pyknic.vector.vec.Vec4i;
-
 /**
  * The common interface for all vectors with a specified length.
  * 

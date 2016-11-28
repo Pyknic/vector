@@ -153,14 +153,20 @@ abstract class AbstractVec4i implements Vec4i {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + getX();
-        hash += hash * 97 + getY();
-        hash += hash * 97 + getZ();
-        hash += hash * 97 + getW();
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + getX();
+            hash += hash * 97 + getY();
+            hash += hash * 97 + getZ();
+            hash += hash * 97 + getW();
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
 
     @Override

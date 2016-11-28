@@ -139,13 +139,19 @@ abstract class AbstractVec3i implements Vec3i {
         }
     }
     
+    private int hashCode = 0;
+    
     @Override
     public final int hashCode() {
-        int hash = 3;
-        hash += hash * 97 + getX();
-        hash += hash * 97 + getY();
-        hash += hash * 97 + getZ();
-        return hash;
+        if (hashCode == 0) {
+            int hash = 3;
+            hash += hash * 97 + getX();
+            hash += hash * 97 + getY();
+            hash += hash * 97 + getZ();
+            hashCode = hash;
+        }
+        
+        return hashCode;
     }
 
     @Override
